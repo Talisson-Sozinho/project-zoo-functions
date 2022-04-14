@@ -1,7 +1,12 @@
-const data = require('../data/zoo_data');
+const { employees } = require('../data/zoo_data');
 
 function getEmployeeByName(employeeName) {
-  // seu código aqui
+  const verifyFirstAndLastName = ({ firstName, lastName }) => {
+    const isNameOfPerson = firstName === employeeName || lastName === employeeName;
+    return isNameOfPerson;
+  };
+  const person = employees.find(verifyFirstAndLastName);
+  return person || {};
 }
 
 module.exports = getEmployeeByName;
